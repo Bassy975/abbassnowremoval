@@ -14,20 +14,19 @@ body {
     overflow-x: hidden;
 }
 
+/* Navigation */
 nav {
-    background: rgba(0,0,0,0.4);
-    padding: 15px 30px;
-    position: fixed;
+    padding: 20px 40px;
+    position: absolute;
     width: 100%;
-    top: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 
 nav h2 {
     margin: 0;
-    font-size: 18px;
 }
 
+/* Hero */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
@@ -48,24 +47,27 @@ nav h2 {
 
 .hero-content p {
     font-size: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
+/* Call Button */
 .call-btn {
-    padding: 15px 35px;
+    padding: 16px 45px;
     background: #1e73be;
     color: white;
     text-decoration: none;
-    border-radius: 40px;
+    border-radius: 50px;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .call-btn:hover {
     background: #155a94;
+    transform: scale(1.05);
 }
 
+/* Services */
 .section {
     padding: 80px 20px;
     text-align: center;
@@ -91,18 +93,11 @@ nav h2 {
     transform: translateY(-5px);
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #081625;
-}
-
 /* Snowflakes */
 .snowflake {
     position: fixed;
     top: -10px;
     color: white;
-    user-select: none;
     pointer-events: none;
     z-index: 9999;
 }
@@ -118,7 +113,7 @@ footer {
 <div class="hero">
   <div class="hero-content">
     <h1>Professional Snow Removal in Philadelphia</h1>
-    <p>Fast, Affordable Service for Cars & Driveways</p>
+    <p>Fast & Affordable Service for Cars and Driveways</p>
     <a class="call-btn" href="tel:2673106475">Call Now (267) 310-6475</a>
   </div>
 </div>
@@ -140,31 +135,43 @@ footer {
   </div>
 </div>
 
-<footer>
-  <p>© 2026 Abbas's Snow Removal | Philadelphia, PA</p>
+<footer style="text-align:center; padding:30px; background:#081625;">
+  © 2026 Abbas's Snow Removal | Philadelphia, PA
 </footer>
 
 <script>
+let snowActive = true;
+
 function createSnowflake() {
-  const snowflake = document.createElement("div");
-  snowflake.innerHTML = "❄";
-  snowflake.classList.add("snowflake");
-  snowflake.style.left = Math.random() * window.innerWidth + "px";
-  snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
-  snowflake.style.opacity = Math.random();
-  snowflake.style.transition = "transform 6s linear";
-  document.body.appendChild(snowflake);
+    if (!snowActive) return;
 
-  setTimeout(() => {
-    snowflake.style.transform = "translateY(110vh)";
-  }, 10);
+    const snowflake = document.createElement("div");
+    snowflake.innerHTML = "❄";
+    snowflake.classList.add("snowflake");
 
-  setTimeout(() => {
-    snowflake.remove();
-  }, 6000);
+    snowflake.style.left = Math.random() * window.innerWidth + "px";
+    snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+    snowflake.style.opacity = Math.random();
+    snowflake.style.transition = "transform 5s linear";
+
+    document.body.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.style.transform = "translateY(110vh)";
+    }, 10);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 5000);
 }
 
-setInterval(createSnowflake, 250);
+const snowInterval = setInterval(createSnowflake, 150);
+
+/* STOP snow after 5 seconds */
+setTimeout(() => {
+    snowActive = false;
+    clearInterval(snowInterval);
+}, 5000);
 </script>
 
 </body>
