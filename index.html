@@ -9,7 +9,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #0b1f33;
+    background: #0a1a2f;
     color: white;
     overflow-x: hidden;
 }
@@ -24,13 +24,14 @@ nav {
 
 nav h2 {
     margin: 0;
+    font-weight: 600;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
-    url('https://images.unsplash.com/photo-1608889175123-4f37e0b8d0af');
+    background: linear-gradient(rgba(10,26,47,0.85), rgba(10,26,47,0.85)),
+    url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -40,17 +41,17 @@ nav h2 {
     padding: 20px;
 }
 
-.hero-content h1 {
+.hero h1 {
     font-size: 48px;
     margin-bottom: 15px;
 }
 
-.hero-content p {
+.hero p {
     font-size: 20px;
     margin-bottom: 30px;
 }
 
-/* Call Button */
+/* Button */
 .call-btn {
     padding: 16px 45px;
     background: #1e73be;
@@ -67,30 +68,50 @@ nav h2 {
     transform: scale(1.05);
 }
 
-/* Services */
+/* Sections */
 .section {
     padding: 80px 20px;
     text-align: center;
 }
 
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.container {
     max-width: 1000px;
     margin: auto;
 }
 
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
 .card {
-    background: #122c47;
+    background: #132a44;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
+}
+
+/* About */
+.about {
+    background: #0f223a;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    background: #081625;
+    padding: 30px;
+    text-align: center;
+    font-size: 14px;
 }
 
 /* Snowflakes */
@@ -110,32 +131,56 @@ nav h2 {
   <h2>Abbas's Snow Removal</h2>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-content">
+  <div>
     <h1>Professional Snow Removal in Philadelphia</h1>
-    <p>Fast & Affordable Service for Cars and Driveways</p>
+    <p>Fast • Affordable • Reliable Winter Service</p>
     <a class="call-btn" href="tel:2673106475">Call Now (267) 310-6475</a>
   </div>
 </div>
 
+<!-- SERVICES -->
 <div class="section">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">
-      <h3>🚗 Car Snow Removal</h3>
-      <p><strong>$15 – $30</strong></p>
-      <p>Full vehicle clearing including snow removal and ice scraping.</p>
-    </div>
+  <div class="container">
+    <h2>Our Services</h2>
 
-    <div class="card">
-      <h3>🏠 Driveways & Walkways</h3>
-      <p><strong>$30 – $65</strong></p>
-      <p>Driveways, sidewalks, steps, and optional ice melt treatment.</p>
+    <div class="services">
+      <div class="card">
+        <h3>🚗 Car Snow Removal</h3>
+        <p><strong>$15 – $30</strong></p>
+        <p>Complete snow clearing and ice scraping for vehicles.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏠 Driveways & Walkways</h3>
+        <p><strong>$30 – $65</strong></p>
+        <p>Driveways, sidewalks, steps, and optional ice melt.</p>
+      </div>
     </div>
   </div>
 </div>
 
-<footer style="text-align:center; padding:30px; background:#081625;">
+<!-- ABOUT -->
+<div class="section about">
+  <div class="container">
+    <h2>About Us</h2>
+    <p>
+      Abbas's Snow Removal proudly serves homeowners and drivers throughout Philadelphia, PA.
+      We specialize in fast, dependable snow clearing during winter storms.
+    </p>
+    <p>
+      Whether you need your car cleared before work or your driveway made safe for your family,
+      we deliver professional service at fair prices.
+    </p>
+    <p>
+      Our mission is simple — quick response, honest pricing, and reliable winter support
+      when you need it most.
+    </p>
+  </div>
+</div>
+
+<footer>
   © 2026 Abbas's Snow Removal | Philadelphia, PA
 </footer>
 
@@ -165,9 +210,9 @@ function createSnowflake() {
     }, 5000);
 }
 
-const snowInterval = setInterval(createSnowflake, 150);
+const snowInterval = setInterval(createSnowflake, 120);
 
-/* STOP snow after 5 seconds */
+/* Stop snow after 5 seconds */
 setTimeout(() => {
     snowActive = false;
     clearInterval(snowInterval);
