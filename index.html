@@ -1,153 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<section style="text-align:center; background:white; padding:50px 20px;">
-  <h2>Why Choose Abbas's Snow Removal?</h2>
-  <p>✔ Affordable Pricing</p>
-  <p>✔ Fast Response Times</p>
-  <p>✔ Reliable & Professional Service</p>
-  <p>✔ Serving All Philadelphia Neighborhoods</p>
-</section>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abbas's Snow Removal | Philadelphia</title>
 
 <style>
-<script>
-function createSnowflake() {
-  const snowflake = document.createElement("div");
-  snowflake.classList.add("snowflake");
-  snowflake.innerHTML = "❄";
-  
-  snowflake.style.left = Math.random() * window.innerWidth + "px";
-  snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  snowflake.style.opacity = Math.random();
-  snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
-
-  document.body.appendChild(snowflake);
-
-  setTimeout(() => {
-    snowflake.remove();
-  }, 5000);
-}
-
-setInterval(createSnowflake, 200);
-</script>
-body
-    {margin: 0;
+body {
+    margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #eef2f7;
-    color: #333;
+    background: #0b1f33;
+    color: white;
+    overflow-x: hidden;
 }
 
-header {
-    background: linear-gradient(rgba(13,45,77,0.85), rgba(13,45,77,0.85)),
+nav {
+    background: rgba(0,0,0,0.4);
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
     url('https://images.unsplash.com/photo-1608889175123-4f37e0b8d0af');
     background-size: cover;
     background-position: center;
-    color: white;
-    padding: 100px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 42px;
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
 }
 
-header p {
-    font-size: 18px;
-    margin-top: 10px;
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 25px;
 }
 
-.call-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 30px;
-    background-color: #1e73be;
+.call-btn {
+    padding: 15px 35px;
+    background: #1e73be;
     color: white;
     text-decoration: none;
-    border-radius: 30px;
+    border-radius: 40px;
     font-weight: bold;
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.call-button:hover {
-    background-color: #155a94;
+.call-btn:hover {
+    background: #155a94;
 }
 
-section {
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
+.section {
+    padding: 80px 20px;
+    text-align: center;
 }
 
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.service-box {
-    background: white;
+.card {
+    background: #122c47;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     transition: 0.3s;
 }
 
-.service-box:hover {
+.card:hover {
     transform: translateY(-5px);
 }
 
 footer {
     text-align: center;
     padding: 30px;
-    background: #0d2d4d;
+    background: #081625;
+}
+
+/* Snowflakes */
+.snowflake {
+    position: fixed;
+    top: -10px;
     color: white;
-    margin-top: 40px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Abbas's Snow Removal</h1>
-    <p>Professional & Affordable Snow Removal in Philadelphia, PA</p>
-    <p>Fast service for cars, driveways, and residential properties.</p>
-    <a class="call-button" href="tel:2673106475">Call Now: (267) 310-6475</a>
-</header>
+<nav>
+  <h2>Abbas's Snow Removal</h2>
+</nav>
 
-<section>
-    <h2 style="text-align:center;">Our Services</h2>
-    <div class="services">
+<div class="hero">
+  <div class="hero-content">
+    <h1>Professional Snow Removal in Philadelphia</h1>
+    <p>Fast, Affordable Service for Cars & Driveways</p>
+    <a class="call-btn" href="tel:2673106475">Call Now (267) 310-6475</a>
+  </div>
+</div>
 
-        <div class="service-box">
-            <h3>🚗 Car Snow Removal</h3>
-            <p><strong>$15 – $30</strong></p>
-            <p>Full vehicle clearing including snow removal, ice scraping, and tire access.</p>
-        </div>
-
-        <div class="service-box">
-            <h3>🏠 Driveway & Residential</h3>
-            <p><strong>$30 – $65</strong></p>
-            <p>Driveways, walkways, steps, and optional ice melt treatment.</p>
-        </div>
-
+<div class="section">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>🚗 Car Snow Removal</h3>
+      <p><strong>$15 – $30</strong></p>
+      <p>Full vehicle clearing including snow removal and ice scraping.</p>
     </div>
-</section>
 
-<section style="text-align:center;">
-    <h2>Need Snow Removed Today?</h2>
-    <a class="call-button" href="tel:2673106475">Call (267) 310-6475</a>
-</section>
+    <div class="card">
+      <h3>🏠 Driveways & Walkways</h3>
+      <p><strong>$30 – $65</strong></p>
+      <p>Driveways, sidewalks, steps, and optional ice melt treatment.</p>
+    </div>
+  </div>
+</div>
 
 <footer>
-    <p>© 2026 Abbas's Snow Removal | Philadelphia, PA</p>
+  <p>© 2026 Abbas's Snow Removal | Philadelphia, PA</p>
 </footer>
+
+<script>
+function createSnowflake() {
+  const snowflake = document.createElement("div");
+  snowflake.innerHTML = "❄";
+  snowflake.classList.add("snowflake");
+  snowflake.style.left = Math.random() * window.innerWidth + "px";
+  snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+  snowflake.style.opacity = Math.random();
+  snowflake.style.transition = "transform 6s linear";
+  document.body.appendChild(snowflake);
+
+  setTimeout(() => {
+    snowflake.style.transform = "translateY(110vh)";
+  }, 10);
+
+  setTimeout(() => {
+    snowflake.remove();
+  }, 6000);
+}
+
+setInterval(createSnowflake, 250);
+</script>
 
 </body>
 </html>
-
-
