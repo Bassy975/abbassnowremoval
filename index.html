@@ -1,121 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abbas's Snow Removal | Philadelphia</title>
-
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eef2f7;
     color: #333;
 }
 
 header {
-    background-color: #0d2d4d;
+    background: linear-gradient(rgba(13,45,77,0.8), rgba(13,45,77,0.8)),
+    url('https://images.unsplash.com/photo-1608889175123-4f37e0b8d0af');
+    background-size: cover;
+    background-position: center;
     color: white;
-    padding: 40px 20px;
+    padding: 100px 20px;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 42px;
 }
 
 header p {
-    margin-top: 10px;
     font-size: 18px;
+    margin-top: 10px;
 }
 
 .call-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
+    margin-top: 25px;
+    padding: 14px 30px;
     background-color: #1e73be;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+.call-button:hover {
+    background-color: #155a94;
 }
 
 section {
-    padding: 40px 20px;
-    max-width: 900px;
+    padding: 60px 20px;
+    max-width: 1000px;
     margin: auto;
 }
 
 .services {
-    background: white;
-    border-radius: 8px;
-    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .service-box {
-    margin-bottom: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+}
+
+.service-box h3 {
+    margin-top: 0;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     background: #0d2d4d;
     color: white;
+    margin-top: 40px;
 }
 </style>
-</head>
-
-<body>
-
-<header>
-    <h1>Abbas's Snow Removal</h1>
-    <p>Reliable Snow Removal Services in Philadelphia</p>
-    <a class="call-button" href="tel:2673106475">Call Now: (267) 310-6475</a>
-</header>
-
-<section>
-    <h2>About Us</h2>
-    <p>
-        Abbas's Snow Removal provides fast, affordable, and professional snow clearing services 
-        throughout Philadelphia. We clear cars, driveways, walkways, and residential properties 
-        with dependable service you can trust.
-    </p>
-</section>
-
-<section class="services">
-    <h2>Our Services</h2>
-
-    <div class="service-box">
-        <h3>Car Snow Removal</h3>
-        <p><strong>$15 – $30</strong></p>
-        <ul>
-            <li>Snow cleared from vehicle</li>
-            <li>Ice scraping</li>
-            <li>Clearing around tires</li>
-        </ul>
-    </div>
-
-    <div class="service-box">
-        <h3>Driveway & Residential Snow Removal</h3>
-        <p><strong>$30 – $65</strong></p>
-        <ul>
-            <li>Driveways</li>
-            <li>Walkways</li>
-            <li>Front steps</li>
-            <li>Ice melt available</li>
-        </ul>
-    </div>
-</section>
-
-<section style="text-align:center;">
-    <h2>Need Snow Removed Today?</h2>
-    <a class="call-button" href="tel:2673106475">Call (267) 310-6475</a>
-</section>
-
-<footer>
-    <p>© 2026 Abbas's Snow Removal | Philadelphia, PA</p>
-</footer>
-
-</body>
-</html>
