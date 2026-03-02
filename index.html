@@ -1,246 +1,255 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Abbas Snow Removal AI</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbas's Snow Removal | Philadelphia, PA</title>
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:linear-gradient(-45deg,#0f172a,#020617,#0b1120,#111827);
-  background-size:400% 400%;
-  animation:bgMove 12s ease infinite;
-  color:white;
-  overflow-x:hidden;
-  cursor:crosshair;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0b1f33;
+  color: white;
+  overflow-x: hidden;
 }
 
-@keyframes bgMove {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* NAV */
+nav {
+  background: rgba(0,0,0,0.6);
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
 }
 
-/* Snow */
-.snowflake{
-  position:fixed;
-  top:-10px;
-  color:white;
-  font-size:12px;
-  pointer-events:none;
-  animation:fall linear forwards;
+nav h2 {
+  font-weight: 600;
 }
 
-@keyframes fall{
-  to{transform:translateY(110vh);}
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
+  url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
 
-/* Top Bar */
-.topbar{
-  background:#00000090;
-  padding:10px;
-  text-align:center;
-  font-weight:bold;
-  letter-spacing:2px;
-  backdrop-filter:blur(10px);
+.hero-content {
+  max-width: 800px;
+  animation: fadeIn 1.5s ease;
 }
 
-/* Container */
-.container{
-  max-width:900px;
-  margin:50px auto;
-  padding:40px;
-  background:rgba(255,255,255,0.05);
-  border-radius:25px;
-  backdrop-filter:blur(20px);
-  box-shadow:0 0 60px rgba(34,197,94,0.3);
-  animation:fadeIn 2s ease;
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
-h1{
-  font-size:42px;
-  margin:0;
-  text-shadow:0 0 20px rgba(34,197,94,0.7);
+/* BUTTONS */
+.btn {
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+  transition: 0.3s ease;
 }
 
-.subtitle{
-  color:#94a3b8;
-  margin-bottom:30px;
+.call-btn {
+  background: #1e73be;
+  color: white;
 }
 
-/* Chat */
-#chat{
-  height:300px;
-  overflow:auto;
-  border-radius:20px;
-  padding:20px;
-  background:rgba(0,0,0,0.4);
-  margin-bottom:20px;
+.call-btn:hover {
+  background: #155a94;
+  transform: scale(1.05);
 }
 
-input{
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  width:60%;
+.donate-btn {
+  background: #00c244;
+  color: black;
+  animation: glow 2s infinite alternate;
 }
 
-button{
-  padding:12px 20px;
-  border-radius:10px;
-  border:none;
-  background:#22c55e;
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
-  box-shadow:0 0 20px rgba(34,197,94,0.6);
+.donate-btn:hover {
+  transform: scale(1.1);
 }
 
-button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 40px rgba(34,197,94,1);
+@keyframes glow {
+  from { box-shadow: 0 0 10px #00ff66; }
+  to { box-shadow: 0 0 25px #00ff99; }
 }
 
-/* Pulse Call Button */
-.call-btn{
-  margin-top:20px;
-  font-size:18px;
-  animation:pulse 2s infinite;
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 20px rgba(34,197,94,0.7);}
-  50%{box-shadow:0 0 40px rgba(34,197,94,1);}
-  100%{box-shadow:0 0 20px rgba(34,197,94,0.7);}
+.container {
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* Stats */
-.stats{
-  display:flex;
-  justify-content:space-around;
-  margin-top:40px;
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
 }
 
-.stat{
-  font-size:22px;
+.card {
+  background: #132a44;
+  padding: 40px;
+  border-radius: 15px;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
-.typing{
-  color:#22c55e;
-  font-style:italic;
+.card:hover {
+  transform: translateY(-8px);
 }
 
-/* Floating Button */
-.floating{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#22c55e;
-  padding:15px;
-  border-radius:50%;
-  box-shadow:0 0 30px rgba(34,197,94,0.8);
-  cursor:pointer;
+/* ABOUT */
+.about {
+  background: #0f223a;
+  line-height: 1.7;
+  font-size: 18px;
 }
 
+/* FOOTER */
+footer {
+  background: #081625;
+  padding: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* SNOW */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  pointer-events: none;
+  animation: fall linear forwards;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
+
 <body>
 
-<div class="topbar">
-📞 267-310-6475 | Serving Philadelphia ❄
+<nav>
+  <h2>Abbas's Snow Removal</h2>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Professional Snow Removal in Philadelphia, PA</h1>
+    <p>Fast • Affordable • Reliable Winter Service</p>
+
+    <a class="btn call-btn" href="tel:2673106475">
+      Call Now (267) 310-6475
+    </a>
+  </div>
 </div>
 
-<div class="container">
-<h1>Abbas Snow Removal AI</h1>
-<p class="subtitle">(Only for questions about my business)</p>
+<div class="section">
+  <div class="container">
+    <h2>Our Services</h2>
 
-<div id="chat"></div>
+    <div class="services">
+      <div class="card">
+        <h3>🚗 Car Snow Removal</h3>
+        <p><strong>$15 – $30</strong></p>
+        <p>Complete snow clearing and ice scraping for vehicles.</p>
+      </div>
 
-<input id="msg" placeholder="Ask about prices, booking, snow...">
-<button onclick="send()">Send</button>
-
-<br>
-<button class="call-btn" onclick="callNow()">Call Now</button>
-
-<div class="stats">
-  <div class="stat">Driveways Cleared: <span id="count1">0</span></div>
-  <div class="stat">Happy Customers: <span id="count2">0</span></div>
+      <div class="card">
+        <h3>🏠 Driveways & Walkways</h3>
+        <p><strong>$30 – $65</strong></p>
+        <p>Driveways, sidewalks, steps, and optional ice melt service.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
+<div class="section about">
+  <div class="container">
+    <h2>About Abbas's Snow Removal</h2>
+    <p>
+      Serving neighborhoods across Philadelphia, PA, Abbas's Snow Removal
+      provides dependable snow clearing during winter storms.
+    </p>
+    <p>
+      Our mission is simple: quick response times, fair pricing,
+      and reliable service you can trust.
+    </p>
+  </div>
 </div>
 
-<div class="floating" onclick="scrollToTop()">↑</div>
+<div class="section">
+  <h2>Support With Cash App</h2>
+  <p>If you'd like to tip or support our work:</p>
+
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/5" target="_blank">$5</a>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/10" target="_blank">$10</a>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/20" target="_blank">$20</a>
+  <br>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038" target="_blank">
+    Custom Amount
+  </a>
+</div>
+
+<footer>
+  © 2026 Abbas's Snow Removal | Philadelphia, PA
+</footer>
 
 <script>
+function createSnow() {
+  const snow = document.createElement("div");
+  snow.innerHTML = "❄";
+  snow.className = "snowflake";
+  snow.style.left = Math.random() * window.innerWidth + "px";
+  snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+  snow.style.animationDuration = (Math.random() * 4 + 3) + "s";
+  document.body.appendChild(snow);
 
-/* Snowfall */
-function snow(){
-  const s=document.createElement("div");
-  s.className="snowflake";
-  s.innerHTML="❄";
-  s.style.left=Math.random()*100+"vw";
-  s.style.animationDuration=(3+Math.random()*5)+"s";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),8000);
-}
-setInterval(snow,100);
-
-/* Counter Animation */
-let c1=0,c2=0;
-setInterval(()=>{
-  if(c1<250){c1++; document.getElementById("count1").innerText=c1;}
-  if(c2<180){c2++; document.getElementById("count2").innerText=c2;}
-},30);
-
-/* Chat */
-function add(who,text){
-  const chat=document.getElementById("chat");
-  chat.innerHTML+="<p><b>"+who+":</b> "+text+"</p>";
-  chat.scrollTop=chat.scrollHeight;
+  setTimeout(() => {
+    snow.remove();
+  }, 7000);
 }
 
-function typing(){
-  const chat=document.getElementById("chat");
-  chat.innerHTML+="<p class='typing'>AI is typing...</p>";
-}
-
-function removeTyping(){
-  const t=document.querySelector(".typing");
-  if(t) t.remove();
-}
-
-function send(){
-  const msg=document.getElementById("msg").value;
-  if(!msg) return;
-  add("You",msg);
-  document.getElementById("msg").value="";
-  typing();
-
-  setTimeout(()=>{
-    removeTyping();
-    let reply="Call 267-310-6475 to book.";
-    if(msg.toLowerCase().includes("price"))
-      reply="Small $20 | Medium $35 | Large $50";
-    if(msg.toLowerCase().includes("hours"))
-      reply="6AM - 10PM on snow days.";
-    add("AI",reply);
-  },1000);
-}
-
-function callNow(){
-  window.location.href="tel:2673106475";
-}
-
-function scrollToTop(){
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
+setInterval(createSnow, 120);
 </script>
 
 </body>
