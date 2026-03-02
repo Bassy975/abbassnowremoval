@@ -1,218 +1,246 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Abbas Snow AI</title>
-<script src="https://js.stripe.com/v3/"></script>
-
+<title>Abbas Snow Removal AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+
 body {
   margin:0;
-  padding:0;
   font-family:Arial, sans-serif;
-  background:linear-gradient(to bottom,#0f172a,#020617);
+  background:linear-gradient(-45deg,#0f172a,#020617,#0b1120,#111827);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
   color:white;
-  text-align:center;
   overflow-x:hidden;
+  cursor:crosshair;
 }
 
-/* ❄ Snow */
-.snowflake {
+@keyframes bgMove {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Snow */
+.snowflake{
   position:fixed;
   top:-10px;
   color:white;
   font-size:12px;
+  pointer-events:none;
   animation:fall linear forwards;
 }
 
-@keyframes fall {
-  to { transform:translateY(110vh); }
+@keyframes fall{
+  to{transform:translateY(110vh);}
 }
 
 /* Top Bar */
-.topbar {
+.topbar{
+  background:#00000090;
   padding:10px;
-  background:#111827;
-  font-size:14px;
-  letter-spacing:1px;
+  text-align:center;
+  font-weight:bold;
+  letter-spacing:2px;
+  backdrop-filter:blur(10px);
 }
 
-/* Glass Card */
-.container {
-  max-width:700px;
-  margin:40px auto;
-  padding:30px;
+/* Container */
+.container{
+  max-width:900px;
+  margin:50px auto;
+  padding:40px;
   background:rgba(255,255,255,0.05);
-  border-radius:20px;
-  backdrop-filter:blur(15px);
-  box-shadow:0 0 40px rgba(34,197,94,0.2);
+  border-radius:25px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 0 60px rgba(34,197,94,0.3);
+  animation:fadeIn 2s ease;
 }
 
-h1 {
-  margin-top:0;
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.subtitle {
+h1{
+  font-size:42px;
+  margin:0;
+  text-shadow:0 0 20px rgba(34,197,94,0.7);
+}
+
+.subtitle{
   color:#94a3b8;
-  margin-bottom:20px;
-  font-size:14px;
+  margin-bottom:30px;
 }
 
-#chat {
+/* Chat */
+#chat{
   height:300px;
   overflow:auto;
-  border:1px solid rgba(255,255,255,0.1);
-  padding:15px;
-  border-radius:15px;
-  background:rgba(0,0,0,0.3);
-  text-align:left;
+  border-radius:20px;
+  padding:20px;
+  background:rgba(0,0,0,0.4);
+  margin-bottom:20px;
 }
 
-input, button {
+input{
   padding:12px;
-  margin:6px;
   border-radius:10px;
   border:none;
-}
-
-input {
   width:60%;
 }
 
-button {
+button{
+  padding:12px 20px;
+  border-radius:10px;
+  border:none;
   background:#22c55e;
   color:white;
   cursor:pointer;
   transition:0.3s;
-  box-shadow:0 0 15px rgba(34,197,94,0.6);
+  box-shadow:0 0 20px rgba(34,197,94,0.6);
 }
 
-button:hover {
-  background:#16a34a;
-  box-shadow:0 0 25px rgba(34,197,94,1);
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 40px rgba(34,197,94,1);
 }
 
-.section {
+/* Pulse Call Button */
+.call-btn{
+  margin-top:20px;
+  font-size:18px;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 20px rgba(34,197,94,0.7);}
+  50%{box-shadow:0 0 40px rgba(34,197,94,1);}
+  100%{box-shadow:0 0 20px rgba(34,197,94,0.7);}
+}
+
+/* Stats */
+.stats{
+  display:flex;
+  justify-content:space-around;
   margin-top:40px;
 }
 
-.typing {
-  font-style:italic;
-  color:#22c55e;
+.stat{
+  font-size:22px;
 }
+
+.typing{
+  color:#22c55e;
+  font-style:italic;
+}
+
+/* Floating Button */
+.floating{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#22c55e;
+  padding:15px;
+  border-radius:50%;
+  box-shadow:0 0 30px rgba(34,197,94,0.8);
+  cursor:pointer;
+}
+
 </style>
 </head>
 <body>
 
 <div class="topbar">
-📞 Call Now: 267-310-6475
+📞 267-310-6475 | Serving Philadelphia ❄
 </div>
 
 <div class="container">
-<h1>❄ Abbas Snow Removal AI</h1>
+<h1>Abbas Snow Removal AI</h1>
 <p class="subtitle">(Only for questions about my business)</p>
 
 <div id="chat"></div>
 
-<input id="msg" placeholder="Ask about prices, weather, booking...">
+<input id="msg" placeholder="Ask about prices, booking, snow...">
 <button onclick="send()">Send</button>
 
-<div class="section">
-<h2>📅 Book Service</h2>
-<input id="name" placeholder="Your Name">
-<input type="date" id="date">
-<button onclick="book()">Book</button>
+<br>
+<button class="call-btn" onclick="callNow()">Call Now</button>
+
+<div class="stats">
+  <div class="stat">Driveways Cleared: <span id="count1">0</span></div>
+  <div class="stat">Happy Customers: <span id="count2">0</span></div>
 </div>
 
-<div class="section">
-<h2>💳 Pay</h2>
-<button onclick="pay(2000)">Small - $20</button>
-<button onclick="pay(3500)">Medium - $35</button>
-<button onclick="pay(5000)">Large - $50</button>
 </div>
-</div>
+
+<div class="floating" onclick="scrollToTop()">↑</div>
 
 <script>
-/* ❄ Snowfall */
-function createSnow(){
-  const snow = document.createElement("div");
-  snow.className="snowflake";
-  snow.innerHTML="❄";
-  snow.style.left=Math.random()*100+"vw";
-  snow.style.animationDuration=(3+Math.random()*5)+"s";
-  document.body.appendChild(snow);
-  setTimeout(()=>snow.remove(),8000);
+
+/* Snowfall */
+function snow(){
+  const s=document.createElement("div");
+  s.className="snowflake";
+  s.innerHTML="❄";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(3+Math.random()*5)+"s";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),8000);
 }
-setInterval(createSnow,200);
+setInterval(snow,100);
+
+/* Counter Animation */
+let c1=0,c2=0;
+setInterval(()=>{
+  if(c1<250){c1++; document.getElementById("count1").innerText=c1;}
+  if(c2<180){c2++; document.getElementById("count2").innerText=c2;}
+},30);
 
 /* Chat */
-const backend = "https://your-backend.onrender.com";
-
 function add(who,text){
   const chat=document.getElementById("chat");
-  chat.innerHTML += "<p><b>"+who+":</b> "+text+"</p>";
-  chat.scrollTop = chat.scrollHeight;
+  chat.innerHTML+="<p><b>"+who+":</b> "+text+"</p>";
+  chat.scrollTop=chat.scrollHeight;
 }
 
-function typingEffect(){
+function typing(){
   const chat=document.getElementById("chat");
-  chat.innerHTML += "<p class='typing'>AI is typing...</p>";
-  chat.scrollTop = chat.scrollHeight;
+  chat.innerHTML+="<p class='typing'>AI is typing...</p>";
 }
 
 function removeTyping(){
-  const typing=document.querySelector(".typing");
-  if(typing) typing.remove();
+  const t=document.querySelector(".typing");
+  if(t) t.remove();
 }
 
-async function send(){
+function send(){
   const msg=document.getElementById("msg").value;
   if(!msg) return;
-
   add("You",msg);
   document.getElementById("msg").value="";
+  typing();
 
-  typingEffect();
-
-  try{
-    const res=await fetch(`${backend}/chat`,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({message:msg})
-    });
-
-    const data=await res.json();
+  setTimeout(()=>{
     removeTyping();
-    add("AI",data.reply);
-  }catch{
-    removeTyping();
-    add("AI","AI is currently offline. Please call 267-310-6475.");
-  }
+    let reply="Call 267-310-6475 to book.";
+    if(msg.toLowerCase().includes("price"))
+      reply="Small $20 | Medium $35 | Large $50";
+    if(msg.toLowerCase().includes("hours"))
+      reply="6AM - 10PM on snow days.";
+    add("AI",reply);
+  },1000);
 }
 
-/* Booking */
-function book(){
-  const name=document.getElementById("name").value;
-  const date=document.getElementById("date").value;
-
-  if(!name||!date){
-    alert("Please enter name and date.");
-    return;
-  }
-
-  alert("Booking request sent!\n\nWe will contact you soon.");
+function callNow(){
+  window.location.href="tel:2673106475";
 }
 
-/* Stripe Payment */
-async function pay(amount){
-  const stripe=Stripe("pk_test_yourkey"); // replace
-  const res=await fetch(`${backend}/create-checkout-session`,{
-    method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({amount})
-  });
-  const data=await res.json();
-  stripe.redirectToCheckout({sessionId:data.id});
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:"smooth"});
 }
+
 </script>
 
 </body>
