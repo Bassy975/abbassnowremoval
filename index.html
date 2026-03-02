@@ -1,55 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abbas's Snow Removal | Philadelphia</title>
+<title>Abbas's Snow Removal | Philadelphia, PA</title>
 
 <style>
-body {
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
   background: #0b1f33;
   color: white;
-  text-align: center;
   overflow-x: hidden;
 }
 
-h1 { font-size: 42px; margin-bottom: 10px; }
-h2 { margin-top: 60px; }
-
-.section {
-  padding: 80px 20px;
+/* NAV */
+nav {
+  background: rgba(0,0,0,0.6);
+  padding: 20px 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
 }
 
+nav h2 {
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(11,31,51,0.85), rgba(11,31,51,0.85)),
+  url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
 .btn {
-  display: inline-block;
-  padding: 15px 35px;
-  margin: 10px;
-  border-radius: 40px;
+  padding: 16px 40px;
+  border-radius: 50px;
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s;
+  display: inline-block;
+  margin: 10px;
+  transition: 0.3s ease;
 }
 
-.call {
+.call-btn {
   background: #1e73be;
   color: white;
 }
 
-.call:hover {
+.call-btn:hover {
   background: #155a94;
   transform: scale(1.05);
 }
 
-.donate {
+.donate-btn {
   background: #00c244;
   color: black;
-  animation: glow 1.8s infinite alternate;
+  animation: glow 2s infinite alternate;
 }
 
-.donate:hover {
-  transform: scale(1.08);
+.donate-btn:hover {
+  transform: scale(1.1);
 }
 
 @keyframes glow {
@@ -57,59 +98,158 @@ h2 { margin-top: 60px; }
   to { box-shadow: 0 0 25px #00ff99; }
 }
 
-/* Snow */
-.snow {
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  background: #132a44;
+  padding: 40px;
+  border-radius: 15px;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* ABOUT */
+.about {
+  background: #0f223a;
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* FOOTER */
+footer {
+  background: #081625;
+  padding: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* SNOW */
+.snowflake {
   position: fixed;
   top: -10px;
   color: white;
   pointer-events: none;
   animation: fall linear forwards;
+  z-index: 1;
 }
 
 @keyframes fall {
   to { transform: translateY(110vh); }
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
 </head>
 
 <body>
 
-<div class="section">
-  <h1>Abbas's Snow Removal</h1>
-  <p>Professional Snow Removal in Philadelphia</p>
+<nav>
+  <h2>Abbas's Snow Removal</h2>
+</nav>
 
-  <a class="btn call" href="tel:2673106475">
-    Call Now (267) 310-6475
-  </a>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Professional Snow Removal in Philadelphia, PA</h1>
+    <p>Fast • Affordable • Reliable Winter Service</p>
+
+    <a class="btn call-btn" href="tel:2673106475">
+      Call Now (267) 310-6475
+    </a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <h2>Our Services</h2>
+
+    <div class="services">
+      <div class="card">
+        <h3>🚗 Car Snow Removal</h3>
+        <p><strong>$15 – $30</strong></p>
+        <p>Complete snow clearing and ice scraping for vehicles.</p>
+      </div>
+
+      <div class="card">
+        <h3>🏠 Driveways & Walkways</h3>
+        <p><strong>$30 – $65</strong></p>
+        <p>Driveways, sidewalks, steps, and optional ice melt service.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section about">
+  <div class="container">
+    <h2>About Abbas's Snow Removal</h2>
+    <p>
+      Serving neighborhoods across Philadelphia, PA, Abbas's Snow Removal
+      provides dependable snow clearing during winter storms.
+    </p>
+    <p>
+      Our mission is simple: quick response times, fair pricing,
+      and reliable service you can trust.
+    </p>
+  </div>
 </div>
 
 <div class="section">
   <h2>Support With Cash App</h2>
-  <p>Tip or support our work:</p>
+  <p>If you'd like to tip or support our work:</p>
 
-  <a class="btn donate" href="https://cash.app/$Abbas038/5" target="_blank">$5</a>
-  <a class="btn donate" href="https://cash.app/$Abbas038/10" target="_blank">$10</a>
-  <a class="btn donate" href="https://cash.app/$Abbas038/20" target="_blank">$20</a>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/5" target="_blank">$5</a>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/10" target="_blank">$10</a>
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038/20" target="_blank">$20</a>
   <br>
-  <a class="btn donate" href="https://cash.app/$Abbas038" target="_blank">
+  <a class="btn donate-btn" href="https://cash.app/$Abbas038" target="_blank">
     Custom Amount
   </a>
 </div>
 
-<script>
-function snow() {
-  const s = document.createElement("div");
-  s.innerHTML = "❄";
-  s.className = "snow";
-  s.style.left = Math.random() * window.innerWidth + "px";
-  s.style.fontSize = (Math.random() * 10 + 10) + "px";
-  s.style.animationDuration = (Math.random() * 3 + 2) + "s";
-  document.body.appendChild(s);
+<footer>
+  © 2026 Abbas's Snow Removal | Philadelphia, PA
+</footer>
 
-  setTimeout(() => { s.remove(); }, 5000);
+<script>
+function createSnow() {
+  const snow = document.createElement("div");
+  snow.innerHTML = "❄";
+  snow.className = "snowflake";
+  snow.style.left = Math.random() * window.innerWidth + "px";
+  snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+  snow.style.animationDuration = (Math.random() * 4 + 3) + "s";
+  document.body.appendChild(snow);
+
+  setTimeout(() => {
+    snow.remove();
+  }, 7000);
 }
 
-setInterval(snow, 150);
+setInterval(createSnow, 120);
 </script>
 
 </body>
