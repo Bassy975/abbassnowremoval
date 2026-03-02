@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,168 +7,109 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #0a1a2f;
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1f33;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-/* NAV */
-nav {
-    padding: 20px;
-    position: relative;
-    z-index: 10;
+h1 { font-size: 42px; margin-bottom: 10px; }
+h2 { margin-top: 60px; }
+
+.section {
+  padding: 80px 20px;
 }
 
-/* HERO */
-.hero {
-    padding: 100px 20px 60px;
-    background: linear-gradient(rgba(10,26,47,0.9), rgba(10,26,47,0.9)),
-    url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    z-index: 10;
-}
-
-h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 18px;
-}
-
-/* BUTTONS */
 .btn {
-    padding: 15px 35px;
-    margin: 10px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s ease;
+  display: inline-block;
+  padding: 15px 35px;
+  margin: 10px;
+  border-radius: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.call-btn {
-    background: #1e73be;
-    color: white;
+.call {
+  background: #1e73be;
+  color: white;
 }
 
-.call-btn:hover {
-    background: #155a94;
-    transform: scale(1.05);
+.call:hover {
+  background: #155a94;
+  transform: scale(1.05);
 }
 
-/* 💚 GLOWING CASH APP BUTTON */
-.donate-btn {
-    background: #00c244;
-    color: black;
-    animation: glow 2s infinite alternate;
+.donate {
+  background: #00c244;
+  color: black;
+  animation: glow 1.8s infinite alternate;
 }
 
-.donate-btn:hover {
-    transform: scale(1.08);
+.donate:hover {
+  transform: scale(1.08);
 }
 
 @keyframes glow {
-    from {
-        box-shadow: 0 0 10px #00ff66,
-                    0 0 20px #00ff66;
-    }
-    to {
-        box-shadow: 0 0 20px #00ff99,
-                    0 0 40px #00ff99;
-    }
+  from { box-shadow: 0 0 10px #00ff66; }
+  to { box-shadow: 0 0 25px #00ff99; }
 }
 
-.section {
-    padding: 60px 20px;
-    position: relative;
-    z-index: 10;
-}
-
-footer {
-    background: #081625;
-    padding: 25px;
-    font-size: 14px;
-    position: relative;
-    z-index: 10;
-}
-
-/* ❄ SNOW */
-.snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    pointer-events: none;
-    z-index: 1;
-    animation: fall linear forwards;
+/* Snow */
+.snow {
+  position: fixed;
+  top: -10px;
+  color: white;
+  pointer-events: none;
+  animation: fall linear forwards;
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(110vh);
-    }
+  to { transform: translateY(110vh); }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <h2>Abbas's Snow Removal</h2>
-</nav>
+<div class="section">
+  <h1>Abbas's Snow Removal</h1>
+  <p>Professional Snow Removal in Philadelphia</p>
 
-<div class="hero">
-  <h1>Professional Snow Removal in Philadelphia</h1>
-  <p>Fast • Affordable • Reliable</p>
-
-  <a class="btn call-btn" href="tel:2673106475">
+  <a class="btn call" href="tel:2673106475">
     Call Now (267) 310-6475
   </a>
 </div>
 
 <div class="section">
   <h2>Support With Cash App</h2>
-  <p>If you'd like to tip or support our work:</p>
+  <p>Tip or support our work:</p>
 
-  <a class="btn donate-btn" href="https://cash.app/$Abbas038/5" target="_blank">$5</a>
-  <a class="btn donate-btn" href="https://cash.app/$Abbas038/10" target="_blank">$10</a>
-  <a class="btn donate-btn" href="https://cash.app/$Abbas038/20" target="_blank">$20</a>
+  <a class="btn donate" href="https://cash.app/$Abbas038/5" target="_blank">$5</a>
+  <a class="btn donate" href="https://cash.app/$Abbas038/10" target="_blank">$10</a>
+  <a class="btn donate" href="https://cash.app/$Abbas038/20" target="_blank">$20</a>
   <br>
-  <a class="btn donate-btn" href="https://cash.app/$Abbas038" target="_blank">
+  <a class="btn donate" href="https://cash.app/$Abbas038" target="_blank">
     Custom Amount
   </a>
 </div>
 
-<footer>
-  © 2026 Abbas's Snow Removal | Philadelphia, PA
-</footer>
-
 <script>
-function createSnowflake() {
-    const snowflake = document.createElement("div");
-    snowflake.innerHTML = "❄";
-    snowflake.classList.add("snowflake");
+function snow() {
+  const s = document.createElement("div");
+  s.innerHTML = "❄";
+  s.className = "snow";
+  s.style.left = Math.random() * window.innerWidth + "px";
+  s.style.fontSize = (Math.random() * 10 + 10) + "px";
+  s.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  document.body.appendChild(s);
 
-    snowflake.style.left = Math.random() * window.innerWidth + "px";
-    snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
-    snowflake.style.opacity = Math.random();
-    snowflake.style.animationDuration = (Math.random() * 3 + 2) + "s";
-
-    document.body.appendChild(snowflake);
-
-    setTimeout(() => {
-        snowflake.remove();
-    }, 5000);
+  setTimeout(() => { s.remove(); }, 5000);
 }
 
-setInterval(createSnowflake, 150);
+setInterval(snow, 150);
 </script>
 
 </body>
